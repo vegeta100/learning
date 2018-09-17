@@ -1,0 +1,9 @@
+
+DetectUtils.getFaceDetectResult
+得到FaceDetectResult[]这个参数
+获得静默活体引擎,调用getAntiScore 就用到了上一行的参数了
+
+//静默防伪检测
+colorSpoofAnti = ColorSpoofAnti.createSpoofAnti(ActivityIdCard.modelDirMap.get(R.raw.anticolor));
+每次识别是否活体的时候,都要初始化,确实很烦人的.这个过程也容易崩溃
+凡是引擎，都是这样的。

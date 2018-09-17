@@ -1,0 +1,2 @@
+adb logcat | adb shell dmesg
+查看日志

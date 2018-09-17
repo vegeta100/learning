@@ -1,0 +1,4 @@
+uart
+通用异步收发器	Universal Asynchronous Receiver Transmitter
+
+串行：一次只发一位，并行有多条线，一次可发多位

@@ -1,0 +1,14 @@
+mk后缀表明是makefile文件
+从某些mk文件里看，PRODUCT_COPY_FILES似乎是未定义的一个变量
+猜想：它早已通过 := 赋值了
+
+product_config.mk
+类似头文件，makefile也有include的关系
+build/core/main.mk -> build/core/config.mk -> build/core/envsetup.mk -> build/core/product_config.mk
+main.mk include config.mk include envsetup.mk include product_config.mk
+
+build/core/main.mk 是在执行编译脚本的时候，必会执行的makefile，它会调用到product_config.mk。也就会初始化PRODUCT_COPY_FILES
+
+还有【ALL_PREBUILT】【BUILD_PREBUILT】
+三者都可以用来复制文件
+

@@ -1,0 +1,13 @@
+development和kernel目录同级
+是Dev Tools所在的目录，Dev Tools是开发者工具，设置开发者选项这些的。
+
+不安装Dev Tools，不能跑到packages/apps下面去
+
+Kernel是linux内核的目录，和内核区分开的Android独有的，像packages frameworks等当然要和它同级。
+
+packages/apps
+等等目录，可以解释解释
+
+launcher3可以看到源代码，它算是android系统内的代码，需要开源。google-play是第三方应用，不开源，所以看不到google-play的源码
+
+我还有另一个办法，就是死亡之力。每天都提醒自己，用悲观到极点的心态提醒自己。

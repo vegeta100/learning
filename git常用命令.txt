@@ -1,0 +1,23 @@
+git checkout -- ***（某些文件）
+撤销工作区对一个文件或多个文件的改动
+
+git checkout -b ***
+复制并切换分支
+
+git reset commit-id --hard
+回退到某一个版本，未来的版本也可以
+git checkout -b *** 和 git reset 很多时候同时用
+
+git show commit-id --raw
+显示指定提交的增加、删除、修改的概况
+
+git log .
+显示在当前子目录有过的改动，知道某个功能必须在这个目录下才会实现时，可以用git log .
+缩小检索的范围，更快解决问题。
+
+在子目录下git show *** 
+和git show *** --raw竟然是不一样的
+
+git commit 是个防御性操作，而且也就多了个快照而已。
+完成一个任务，就可以提交。这样可以通过git log查看某一个具体功能的代码。类似于代码大全里讲的功能内聚。
+也可以把git log的代码拿出来总结一番。

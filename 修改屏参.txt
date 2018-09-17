@@ -1,0 +1,3 @@
+屏参是写在主板上的某个e2prom里的
+放在驱动目录下？
+drivers/video/rockchip/jld_e2rom.c

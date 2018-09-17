@@ -1,0 +1,34 @@
+launcher3桌面也是Activity
+猜想：开机后，监听系统配置Configuration，检测到3G或4G信号，就会执行一段代码，这段代码导致了闪屏
+
+
+“mcc” The IMSI mobile country code (MCC) has changed — that is, a SIM hasbeen detected and updated the MCC.
+移动国家号码，由三位数字组成，每个国家都有自己独立的MCC，可以识别手机用户所属国家。 
+
+“mnc“ The IMSI mobile network code (MNC) has changed — that is, a SIM hasbeen detected and updated the MNC.
+移动网号，在一个国家或者地区中，用于区分手机用户的服务商。 
+
+
+
+
+
+---------------------------
+frameworks/base/core/java/android/content/res/Configuration.java
+
+updateFrom
+
+public int updateFrom (Configuration delta)
+Copies the fields from delta into this Configuration object, keeping track of which ones have changed. Any undefined fields in delta are ignored and not copied in to the current Configuration.
+---------------------------
+
+
+---------------------------
+changes = newConfig.updateFrom(values);
+changes = (changes == 3)?0:changes;      //changes == 3，就意味着mcc mnc发生了改动
+
+if (changes != 0) {
+这段代码就是要判断当前的Configuration比起“原封不动的初始配置”是否改动了，有改动就往下执行一段代码
+
+frameworks/base/services/java/com/android/server/am/ActivityManagerService.java
+系统中的Activity管理服务
+---------------------------
