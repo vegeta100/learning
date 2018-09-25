@@ -1,0 +1,46 @@
+BASH
+linux上的命令解释程序
+它是用来解释shell命令的:rm mkdir这些命令
+称为shell命令解释器，也就很合理了
+
+双关语：
+Bourne again/Born again
+这个词，可以理解为命令解释器，也可以理解为bash命令集，但能否理解为shell脚本编程呢？
+Born again，可以理解为基于unix的新生shell；Bourne again，则理解为伯恩创建的shell
+
+shell：中文是外壳
+在计算机中，用于区别“核”，同时与“核”有关系。
+这个想法是对的，它给用户提供操作界面，类似于windows下的cmd.exe。rm mkdir等命令多少和内核有关
+有了它，rm mkdir这些命令的执行才能达到预期的效果，它的作用就是解释命令，所以称它为命令解释器是对的。
+
+--help、man，这两者的区别，需要研究一下。
+
+Usage: date [OPTION]... [+FORMAT]
+
+``中，包住的是命令执行语句，和字符串差很多的
+等式两边用空格是错的。这是因为shell里还有命令，用了空格，命令解释器会把等式中的一部分当成命令。
+并不是弱类型，更准确地说，是全都是字符串类型，也就不用给出类型定义
+如：log=$d.log
+
+``用了，执行结果就不会显示出来了。
+
+$普通用户，#root用户
+#等级3，$等级4。#更高级
+
+用变量要加$，不然bash会判断为某个字母或单词。
+
+
+/bin/bash指定了命令解释器的路径，shell脚本得以执行，是有shell命令解释器的缘故。即便不指定，也会有默认的解释器执行shell命令的。
+像平时在$或#下输入命令，也是有默认的shell命令解释器的，不然命令是不会执行的。
+/bin，就是二进制文件，即可执行文件。它下面的bash等等都是可执行的。
+
+.bashrc，rc是run commands的意思，是吗？
+个人认为，run configurations的意思更为接近。
+
+> 为重定向符，0 1 2是标准输入、标准输出、标准错误，通常shell命令是定向到标准输出文件。重定向的对象就是文件。
+
+git bash就只是个壳，windows不是linux内核，所以，切换到root用户、top、man等都是无法实现的。
+
+top:the  types,  order  and size of information displayed for processes
+ps:report snapshot of current progress. | progress
+理解为两种意思应该都可以
