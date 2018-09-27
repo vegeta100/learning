@@ -44,3 +44,10 @@ git bash就只是个壳，windows不是linux内核，所以，切换到root用�
 top:the  types,  order  and size of information displayed for processes
 ps:report snapshot of current progress. | progress
 理解为两种意思应该都可以
+
+.bashrc是run configurations ，还是run commands？
+这里确实是在执行一组命令，但是从功能的意义上来说，又是配置的意思。
+
+从设计的角度上来说，**rc就应该是隐藏文件，一些配置信息多少是冗杂的。和代码大全里的子程序相冲突。
+
+
