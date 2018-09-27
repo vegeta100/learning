@@ -50,4 +50,7 @@ ps:report snapshot of current progress. | progress
 
 从设计的角度上来说，**rc就应该是隐藏文件，一些配置信息多少是冗杂的。和代码大全里的子程序相冲突。
 
-
+proc
+虚拟文件系统
+进程信息虚拟文件系统
+process ******
