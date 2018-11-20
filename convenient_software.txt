@@ -1,0 +1,5 @@
+teamviewer:
+重启后仍可以连上，说明了两点，teamviewer开机自启动是有用的；屏幕锁定并不会影响程序的执行。它们该干啥还干啥
+
+bluestacks:
+用经典版的，才可用root explorer读写数据库
