@@ -1,0 +1,98 @@
+webservice的asmx网页，是连接的地址，而wsdl是具体的描述，描述它里面的方法。
+连接到asmx，而wsdl是用来访问的
+wsdl是为了便于你理解，而asmx则是用于连接调用的。
+
+之所以有url，还需要namespace，大致可以理解为asmx和wsdl不是同一个网址，我们还需要wsdl里面的东西，所以需要它的namespace
+
+只是连上webservice，那就只需url，而获取返回的soap，则需要wsdl里面的方法，所以需要命名空间
+这符合一样东西只做一件事的哲学
+
+
+指纹，上传这一快要反复确认上传成功了没，上传没成功，那就再上传
+
+下载也是
+
+com.zyac.xguard.fragment.ConfirmOrCancelDialog#ConfirmOrCancelDialog(java.lang.String, int)
+
+
+注册管理员指纹，z8000最多注册4枚，1个人员最多3枚指纹。
+人员编号、指纹编号、token值
+无论什么接口，都要传token值。token值
+
+在登录的时候，决定了token值，之后只需要调用这个数值就行了。
+
+
+
+删除管理员，查出本地的管理员编号。然后显示一个列表。 三
+我根据人员列表，所组成的List数组信息，穿过去后下载指纹
+
+上传指纹 指纹编号、机器编号、指纹数据（16进制字符串）
+
+更新人员后，会把本地未绑定的指纹去调吗
+
+下载指纹后，未绑定的指纹会被全部清除。z6500和z8000是这样的。
+
+
+下载人员
+传token值就行了,还有页码，页码从〇开始
+
+下载所有人员列表 有人员总数字段
+下载选定人员的指纹数据 用户id、token List<String>
+
+
+上传指纹，就只上传本地未关联的指纹
+设备id 那么本地未关联的指纹，可以通过数据库来查找，
+_DeviceID = it.getStringExtra(GuardDB.XSETTING.DB_DEVICE_ID);
+这是设备id,
+p.put("DeviceNo", did);基本上token都在前面
+指纹编号和指纹数据字符串
+
+"142C5B0E0000C28A6DF4C89890F402A361F6A8508AB4FA9D96D4C9705172B2BABDF756E88674D2BDFAF56968CBEE6ABEEDF657D8C8B083C83AF738D80334A3D045B469184A6E7B577EF7B907034523D3ADD62AE0C2764C5D0187BBEF080174CC02472C0F093A7C5A12E5DD09453BD46529A4B8D805B1245A86B51E11863EF45995B7D9C006459CCEAEB5DE28C6C43CD5B2B6590FC478B357BA55CA0883479B59E255DC08438334CD05F82806C5B80CD73196DA08C5398A45A9F9B60F830764556289FEFFCC49F3D92A83F8F88EA9A2AB25F8570847B644D3FE45FE17CCC14DD73946FEEFCBFB19339DF9B8E7C20751ABBD8948EF437EC934F2F7A6EFC509A136D6F9F81F8549DAAF16F9580946389AC199FA18E0C47A02BFCEFA3800037A9B4D12FACAEF0441D27C36439AFFC6FE02068544FB1F875BB1224675F6EEC385B99829763607C3FE0943C2FBFAEEC9C34A4902FCFE060AC1D24BC14CF8F8C3015BC161FB4C08C540FA4554F17F38433916FF84FD517267F31255235496F68265F273465552FF6182323F41423F85714028714113F38322110431233F63F153114FFFFF255154FA5FF833533314136F5F62221F474F354838181229FF6A4127FF22FF444F135B7D183122B98003543112C890192A13629B61826322E19B60482823A0898132270103A1C2DB080075D5802D1B1252CEB2DD4A220334722B4F1261E0712C75236042A07B063232D992726104E19E811B6D336843E3A21B2012BD81AC0824721591481A25B1BB8249220293B781145611D0B8A10000470C";
+
+
+{"Result":0,"MaxCount":0,"Message":null,"Values":[{"UserID":2,"UserName":"用户1","CardID":"22994526","FingerNums":2,"FingerType":2},{"UserID":3,"UserName":"用户2","CardID":"07636438","FingerNums":1,"FingerType":2},{"UserID":5,"UserName":"user1","CardID":"25586778","FingerNums":1,"FingerType":2},{"UserID":6,"UserName":"人员1","CardID":"005FDD2B","FingerNums":2,"FingerType":2},{"UserID":7,"UserName":"人员2","CardID":"005FC581","FingerNums":2,"FingerType":2},{"UserID":8,"UserName":"人员3","CardID":"005FFEC2","FingerNums":1,"FingerType":2},{"UserID":9,"UserName":"人员4","CardID":"005FC65B","FingerNums":1,"FingerType":2},{"UserID":10,"UserName":"人员5","CardID":"005FD75A","FingerNums":1,"FingerType":2},{"UserID":11,"UserName":"人员6","CardID":"005FCDD9","FingerNums":1,"FingerType":2},{"UserID":22,"UserName":"ssssss","CardID":"45889345","FingerNums":2,"FingerType":2},{"UserID":33,"UserName":"左1","CardID":"00000001","FingerNums":1,"FingerType":2},{"UserID":34,"UserName":"左2","CardID":"00000002","FingerNums":1,"FingerType":2},{"UserID":38,"UserName":"右1","CardID":"00000006","FingerNums":1,"FingerType":1},{"UserID":39,"UserName":"右2","CardID":"00000007","FingerNums":1,"FingerType":2},{"UserID":40,"UserName":"右3","CardID":"00000008","FingerNums":1,"FingerType":2},{"UserID":41,"UserName":"右4","CardID":"00000009","FingerNums":1,"FingerType":2},{"UserID":43,"UserName":"王特勋","CardID":"20008ABC","FingerNums":1,"FingerType":2},{"UserID":44,"UserName":"王特勋1","CardID":"00001234","FingerNums":1,"FingerType":2},{"UserID":1,"UserName":"Admin","CardID":"0FFFFFFF","FingerNums":0,"FingerType":2},{"UserID":35,"UserName":"左3","CardID":"00000003","FingerNums":0,"FingerType":2},{"UserID":36,"UserName":"左4","CardID":"00000004","FingerNums":0,"FingerType":2},{"UserID":37,"UserName":"左5","CardID":"00000005","FingerNums":0,"FingerType":2},{"UserID":42,"UserName":"右5","CardID":"00000010","FingerNums":0,"FingerType":2}]}
+</string>
+
+下载人员勾选，并提示下载指纹，这个没问题。
+
+<string xmlns="http://tempuri.org/">
+{"Result":0,"MaxCount":0,"Message":null,"Values":[{"UserID":2,"UserName":"用户1","CardID":"22994526","FingerNums":2,"FingerType":2},{"UserID":3,"UserName":"用户2","CardID":"07636438","FingerNums":1,"FingerType":2},{"UserID":5,"UserName":"user1","CardID":"25586778","FingerNums":1,"FingerType":2},{"UserID":6,"UserName":"人员1","CardID":"005FDD2B","FingerNums":2,"FingerType":2},{"UserID":7,"UserName":"人员2","CardID":"005FC581","FingerNums":2,"FingerType":2},{"UserID":8,"UserName":"人员3","CardID":"005FFEC2","FingerNums":1,"FingerType":2},{"UserID":9,"UserName":"人员4","CardID":"005FC65B","FingerNums":1,"FingerType":2},{"UserID":10,"UserName":"人员5","CardID":"005FD75A","FingerNums":1,"FingerType":2},{"UserID":11,"UserName":"人员6","CardID":"005FCDD9","FingerNums":1,"FingerType":2},{"UserID":22,"UserName":"ssssss","CardID":"45889345","FingerNums":2,"FingerType":2},{"UserID":33,"UserName":"左1","CardID":"00000001","FingerNums":1,"FingerType":2},{"UserID":34,"UserName":"左2","CardID":"00000002","FingerNums":1,"FingerType":2},{"UserID":38,"UserName":"右1","CardID":"00000006","FingerNums":1,"FingerType":1},{"UserID":39,"UserName":"右2","CardID":"00000007","FingerNums":1,"FingerType":2},{"UserID":40,"UserName":"右3","CardID":"00000008","FingerNums":1,"FingerType":2},{"UserID":41,"UserName":"右4","CardID":"00000009","FingerNums":1,"FingerType":2},{"UserID":43,"UserName":"王特勋","CardID":"20008ABC","FingerNums":1,"FingerType":2},{"UserID":44,"UserName":"王特勋1","CardID":"00001234","FingerNums":1,"FingerType":2},{"UserID":1,"UserName":"Admin","CardID":"0FFFFFFF","FingerNums":0,"FingerType":2},{"UserID":35,"UserName":"左3","CardID":"00000003","FingerNums":0,"FingerType":2},{"UserID":36,"UserName":"左4","CardID":"00000004","FingerNums":0,"FingerType":2},{"UserID":37,"UserName":"左5","CardID":"00000005","FingerNums":0,"FingerType":2},{"UserID":42,"UserName":"右5","CardID":"00000010","FingerNums":0,"FingerType":2}]}
+</string>
+
+
+
+
+
+//以下是下载指纹的接口
+李涛  13:54:32
+
+<string xmlns="http://tempuri.org/">
+{"Result":0,"MaxCount":0,"Message":null,
+
+"Values":[
+{
+     "UserID":2,"UserName":"用户1","CardID":"22994526","FingerNums":2,"FingerType":2,"FingerString":
+        [{
+	  {"ID":2,"FingerString":"SDsdkjslkdjslkjdlskdfsldkflsdl"},
+	  {"ID":3,"FingerString":"SDsdkjslkdjslkjdlskdfsldkflsdl"},
+	  {"ID":4,"FingerString":"SDsdkjslkdjslkjdlskdfsldkflsdl"}
+         }]
+      },
+
+     {"UserID":3,"UserName":"用户2","CardID":"07636438","FingerNums":1,"FingerType":2,"FingerString":
+        [{
+	  {"ID":5,"FingerString":"SDsdkjslkdjslkjdlskdfsldkflsdl"}
+         }]
+      },
+
+     {"UserID":5,"UserName":"user1","CardID":"25586778","FingerNums":1,"FingerType":2,"FingerString":
+        [{
+	  {"ID":6,"FingerString":"SDsdkjslkdjslkjdlskdfsldkflsdl"},
+	  {"ID":7,"FingerString":"SDsdkjslkdjslkjdlskdfsldkflsdl"}
+         }]
+    }
+  }
+]
+
+}
+</string>
