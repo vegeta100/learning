@@ -3,3 +3,6 @@ teamviewer:
 
 bluestacks:
 用经典版的，才可用root explorer读写数据库
+
+easybcd:
+装系统的工具

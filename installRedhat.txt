@@ -1,7 +1,53 @@
-老实说，用虚拟机装Linux到移动硬盘上，会出现这样的问题，因为在接上硬盘之前，就已经选择了本地的存储位置，所以嘛，当你一连上移动硬盘后，后续的安装会让你选择该安装到哪里的，少了这个步骤说明有问题的。
+用虚拟机装Linux到移动硬盘上，在接上移动硬盘之前，就已经选择了本地的存储位置，所以嘛，当你一连上移动硬盘后，后续的安装会让你选择该安装到本地还是移动硬盘的，少了这个步骤是有问题的。
 
-在开启虚拟机后，才连接上硬盘，这是开启虚拟机后才有的选项。
+开启虚拟机后，才能连接上硬盘，这是开启虚拟机后才能有的选项。
 
-装完最后一步后，选择重新引导，不好意思，不行，重新引导的系统是在本地电脑上的，到了重新引导 了，本地发现少东西啊，所以没起来。这时候就需要你的硬盘去接上电脑，重启后硬盘启动 了。
+装完最后一步，会提示重启。在这里，重新引导是在本地电脑上的，而系统是在移动硬盘上的，所以没起来。这时候就该重启电脑，然后选择移动硬盘启动了。
 
-还有，移动硬盘真的有很多好处，那就是，最前一段空白区，系统就会把那个作为引导的地方，不影响其他的内容，这样真的棒棒的。
+还有，移动硬盘真的很便利，那就是，最前一段空白无分区，linux系统会选择把它作为引导的地方，不影响有分区的其他内容，这样真的棒。
+而且，移动硬盘的分区还可以这么分，一个fat32，用来存放Linux系统需要的东西，一个ntfs，用来存放windows可以访问的东西。
+
+tips:像Linux操作系统有不少只有命令行的显示，我不是搞运维的，当然选带GUI的了。
+
+
+
+
+
+yum: yellow dog update,modified，是shell的前端软件包管理器
+rpm: redhat package manager，红帽系统软件包管理器
+
+错误：This system is not registered to Red Hat Subscription Managemen
+解决思路是：redhat的yum是需要付费的，可以替换成centos对应的yum
+我是在阿里云镜象下载的，还有镜像这个东西，我要好好理解镜像这个词
+可以在网上找多篇博客，同时看，以免有的博客出错，而且，相互借鉴，也可以看出其中有什么原理。
+我觉得3篇最好，如果好评很多，一篇也够了
+出现一次依赖包出错，是依赖包还没下载完就复制过去造成的，文件图像显示和文件大小也可以看出这个文件是否完整
+
+下载安装yum后，暂时还查看不到，我想应该是配置的问题。所以需要下载别的什么东东下来。
+不止是配置的问题，还有别的原因，比如说，有些必要的yum并没有下载，对，确实有一两个yum没下载，但还不是问题关键，毕竟下载安装了这少的一两个也一样。
+这个错误是本地安装是失败的，要通过网络安装才行…… 这是何道理啊？所以说 --nodeps 显示安装细节是对的，安装不成功就可以看出来了
+
+这三行把yum弄出来了，不过我的略有不同，我是在阿里云上下载的。联网才能安装成功，下载到本地却安装不成功，是何道理？是下载的时候丢包了？？那下载安装照样安装不了吧
+我想，应该是一个没安装成功，后续的也就跟着不成功，应该是这样。对，是正解。还有，有一点我误解了，那就是，我认为那个PackageKit-yum是一定要下的，结果它没下成功，其他也跟着下不了
+1  rpm -ivh  --nodeps http://mirrors.163.com/centos/5/os/x86_64/CentOS/yum-fastestmirror-1.1.16-14.el5.centos.1.noarch.rpm  
+2  rpm -ivh  --nodeps http://mirrors.163.com/centos/5/os/x86_64/CentOS/yum-metadata-parser-1.1.2-3.el5.centos.x86_64.rpm  
+3  rpm -ivh  --nodeps http://mirrors.163.com/centos/5/os/x86_64/CentOS/yum-3.2.22-26.el5.centos.noarch.rpm
+
+Linux的默认选项是大写的那一项，而不是第一项，应该是这样子的。
+果然大功勉强算告成，yum 能安装了，用的是centOS的yum，redhat的yum是要收费的。但安装完后呢，还得干嘛才能用那个fticx
+
+
+yum -y install gtk2-immodule-xim gtk2-immodules gcc libXrender-devel cairo-devel pango-devel intltool im-chooser
+像这类通用的，linux似乎自动联网去下载，而不需要指定网址
+
+
+
+redhat下默认有的yum
+[root@localhost test_syntax]# rpm -qa |grep yum
+yum-3.4.3-150.el7.noarch
+yum-utils-1.1.31-40.el7.noarch
+yum-langpacks-0.4.2-7.el7.noarch
+PackageKit-yum-1.0.7-6.el7.x86_64
+yum-rhn-plugin-2.0.1-6.el7.noarch
+yum-metadata-parser-1.1.4-10.el7.x86_64
+[root@localhost test_syntax]
