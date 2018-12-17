@@ -1,4 +1,5 @@
 git checkout -- ***（某些文件）
+
 撤销工作区(不是暂存区)对一个或多个文件的改动
 
 git checkout -b ***
@@ -37,3 +38,6 @@ app上的应用数据、电脑上的应用数据，都可以用git来同步。
 
 
 从服务器拉取了新的东西下来后，也要再推送到服务器那里，因为本地最新的master节点并不是服务器的节点，是服务器最新节点和本地分支最新节点合并的结果。
+
+git config --global core.quotepath false
+在git bash里面乱码，用上这一句，git status就不会乱码了
